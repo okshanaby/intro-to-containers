@@ -39,12 +39,12 @@
 
 FROM node:20
 
-RUN useradd -ms /bin/bash okshan
+USER node
 
-USER okshan
+WORKDIR /home/node/code
 
-WORKDIR /home/okshan/code
+COPY --chown=node:node . .
 
-COPY --chown=okshan:okshan index.js .
+RUN npm ci
 
 CMD ["node", "index.js"]
