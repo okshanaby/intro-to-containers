@@ -1,3 +1,20 @@
+FROM node:20
+
+USER node
+
+RUN mkdir /home/node/code
+
+WORKDIR /home/node/code
+
+COPY --chown=node:node package-lock.json package.json ./
+
+RUN npm ci
+
+COPY --chown=node:node . .
+
+CMD ["node", "index.js"] 
+
+
 # =======================================================
 # 1. Normal (ROOT) ======================================
 
@@ -37,14 +54,14 @@
 # ========================================================
 # 4. With custom user (okshan) =======================================
 
-FROM node:20
+# FROM node:20
 
-USER node
+# USER node
 
-WORKDIR /home/node/code
+# WORKDIR /home/node/code
 
-COPY --chown=node:node . .
+# COPY --chown=node:node . .
 
-RUN npm ci
+# RUN npm ci
 
-CMD ["node", "index.js"]
+# CMD ["node", "index.js"]
