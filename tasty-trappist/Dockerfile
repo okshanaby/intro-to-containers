@@ -2,7 +2,8 @@
 FROM node AS node-builder
 WORKDIR /build
 COPY package-lock.json package.json ./
-RUN npm ci && npm run build
+RUN npm ci 
+RUN npm run build
 COPY ./dist .
 
 # ngnx server stage
