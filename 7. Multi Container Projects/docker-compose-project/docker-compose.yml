@@ -1,0 +1,21 @@
+services:
+  api:
+    build: api
+    ports:
+      - 8080:8080
+    links: 
+      - db
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://db:27017
+    volumes:
+      - ./api:/home/node/code
+      #   add this line to use container node_modulels if not, install modules locally and remove this line
+      - /home/node/code/node_modules 
+      
+  db:
+    image: mongo:7
+  
+  web:
+    build: web
+    ports:
+      - 8081:80
