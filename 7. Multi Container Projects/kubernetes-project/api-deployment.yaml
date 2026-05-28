@@ -29,7 +29,7 @@ spec:
             - name: MONGO_CONNECTION_STRING
               value: mongodb://db:27017
           image: api
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           name: api
           ports:
             - containerPort: 8080

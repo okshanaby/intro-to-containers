@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - image: web
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           name: web
           ports:
             - containerPort: 80
