@@ -1,0 +1,36 @@
+services:
+  api:
+    build: api
+    ports:
+      - 8080:8080
+    links: 
+      - db
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://db:27017
+    # volumes:
+    #   - ./api:/home/node/code
+    #   #   add this line to use container node_modulels if not, install modules locally and remove this line
+    #   - /home/node/code/node_modules 
+    depends_on:
+      - db
+    labels:
+      - kompose.service.type=nodeport
+      - kompose.image-pull-policy=Never
+      
+  db:
+    image: mongo:7
+    ports:
+      - 27017:27017
+  
+  web:
+    build: web
+    ports:
+      - 8081:80
+    links:
+      - api
+    depends_on:
+      - api
+    labels:
+      - kompose.service.type=LoadBalancer
+      - kompose.service.expose=true
+      - kompose.image-pull-policy=Never
