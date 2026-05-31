@@ -1,6 +1,6 @@
 # Complete Intro to Containers v2 — Notes & Projects
 
-My notes and hands-on projects from the [**Complete Intro to Containers, v2**](https://frontendmasters.com/courses/complete-intro-containers-v2/) course by [Brian Holt](https://www.brianholt.me/) on Frontend Masters.
+My notes and hands-on projects from the [**Complete Intro to Containers, v2**](https://frontendmasters.com/courses/complete-intro-containers-v2/) course by [Brian Holt](https://www.linkedin.com/in/btholt/) (working at **Microsoft** at the time of recording) on Frontend Masters.
 
 It walks from first principles — building a "container" by hand with `chroot`, namespaces, and cgroups — all the way up to Docker, tiny production images, and orchestrating multi-container apps with Docker Compose and Kubernetes.
 
